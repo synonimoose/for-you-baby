@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>for my baby</title>
+<title>For My Love 💖</title>
 <style>
     body {
         font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -82,15 +82,16 @@
 </head>
 <body>
 
-<h1>your name, sweetheart</h1>
-<input type="text" id="username" placeholder="Your Name">
-<button onclick="showLove()">click for love</button>
+<h1>enter your name, my love 💕</h1>
+<input type="text" id="username" placeholder="what should i call you?">
+<button onclick="showLove()">Show Love 💖</button>
 
 <div id="message"></div>
 
+<!-- Background Music -->
 <audio id="loveSong" loop>
-    
-    <source src="c:\Users\Acer\Downloads\yung kai - blue (Karaoke Version).mp3">
+    <!-- You can replace this MP3 link with your favorite romantic song -->
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a1b8288c1.mp3?filename=romantic-background-music-10905.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -104,7 +105,7 @@ function showLove() {
         return;
     }
 
-    messageDiv.innerHTML = `💖 ${name}, hi mi amore. i love you so much! 💖`;
+    messageDiv.innerHTML = `💖 ${name}, my baby. i love youu! 💖`;
 
     // Start music
     song.play().catch(() => {
