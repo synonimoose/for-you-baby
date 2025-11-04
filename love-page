@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>for my baby</title>
+<style>
+    body {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ff69b4);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #fff;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px #ff1493;
+    }
+
+    input {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        font-size: 1em;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #ff1493;
+    }
+
+    #message {
+        font-size: 2.5em;
+        font-weight: bold;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 40px #ff1493;
+        animation: flash 1s infinite alternate;
+    }
+
+    @keyframes flash {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0.7; transform: scale(1.1); }
+    }
+
+    .heart, .flower {
+        position: absolute;
+        font-size: 2em;
+        animation: float 5s linear infinite;
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    @keyframes float {
+        from { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+        to { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    audio {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<h1>Enter your name, my love 💕</h1>
+<input type="text" id="username" placeholder="Your Name">
+<button onclick="showLove()">Show Love 💖</button>
+
+<div id="message"></div>
+
+<!-- Background Music -->
+<audio id="loveSong" loop>
+    <!-- You can replace this MP3 link with your favorite romantic song -->
+    <source src="https://yungkai.bandcamp.com/track/blue-acoustic-instrumental">
+</audio>
+
+<script>
+function showLove() {
+    const name = document.getElementById("username").value.trim();
+    const messageDiv = document.getElementById("message");
+    const song = document.getElementById("loveSong");
+
+    if (name === "") {
+        messageDiv.innerHTML = "Please enter your name, sweetheart 💞";
+        return;
+    }
+
+    messageDiv.innerHTML = `💖 ${name}! You are my sunshine! 💖`;
+
+    // Start music
+    song.play().catch(() => {
+        alert("Tap the screen to allow music playback 🎶");
+    });
+
+    // Floating hearts & flowers
+    for (let i = 0; i < 25; i++) {
+        const elem = document.createElement("div");
+        elem.classList.add(Math.random() > 0.5 ? "heart" : "flower");
+        elem.innerHTML = Math.random() > 0.5 ? "💗" : "🌸";
+        elem.style.left = Math.random() * 100 + "vw";
+        elem.style.animationDuration = (3 + Math.random() * 4) + "s";
+        document.body.appendChild(elem);
+        setTimeout(() => elem.remove(), 7000);
+    }
+}
+</script>
+
+</body>
+</html>
