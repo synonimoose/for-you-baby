@@ -115,7 +115,7 @@ function showLove() {
     // Floating hearts & flowers
     for (let i = 0; i < 25; i++) {
         const elem = document.createElement("div");
-        elem.classList.add(Math.random() > 0.5 ? "heart" : "flower");
+        elem.classList.add(Math.random() > 0.5 ? "heart" : "flower" : "ribbon");
         elem.innerHTML = Math.random() > 0.5 ? "💗" : "🌸" :"🎀";
         elem.style.left = Math.random() * 100 + "vw";
         elem.style.animationDuration = (3 + Math.random() * 4) + "s";
